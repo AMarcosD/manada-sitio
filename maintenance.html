@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Manada — Ya volvemos</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+  body{ min-height: 100vh; display:flex; align-items:center; justify-content:center; }
+  .soon{ max-width: 520px; text-align:center; padding: 40px 32px; }
+  .soon .paw-big{ font-size: 40px; margin-bottom: 24px; }
+  .soon h1{ font-size: 34px; margin-bottom: 16px; }
+  .soon p{ color: var(--charcoal-soft); font-size: 16px; margin-bottom: 32px; }
+  .soon .cta-form{ display:flex; gap: 10px; justify-content:center; flex-wrap: wrap; }
+  .soon input{ padding: 14px 18px; border-radius: 999px; border: 1.5px solid var(--line); min-width: 260px; font-family:'Inter',sans-serif; font-size: 14.5px; }
+</style>
+</head>
+<body>
+  <div class="soon">
+    <div class="paw-big">🐾</div>
+    <span class="eyebrow">Muy pronto</span>
+    <h1>Nos encontramos trabajando en esto.</h1>
+    <p>Estamos armando Manada: comercio con causa para mascotas en Argentina. Dejanos tu email y te avisamos apenas esté listo.</p>
+    <form class="cta-form" onsubmit="return false;">
+      <input type="email" placeholder="tu@email.com" required>
+      <button type="submit" class="btn btn-primary">Avisarme</button>
+    </form>
+  </div>
+</body>
+</html>
