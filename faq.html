@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Preguntas frecuentes — Manada</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+  .page-hero{ padding: 70px 0 40px; text-align:center; }
+  .page-hero h1{ font-size: 42px; margin-bottom: 14px; }
+  .page-hero p{ color: var(--charcoal-soft); font-size: 16.5px; max-width: 520px; margin: 0 auto; }
+
+  .faq-nav{ display:flex; gap: 12px; justify-content:center; flex-wrap: wrap; padding-bottom: 60px; }
+  .faq-nav a{
+    font-size: 13.5px; font-weight: 700; padding: 10px 18px; border-radius: 999px;
+    background: var(--white); border: 1px solid var(--line); color: var(--charcoal-soft);
+    transition: background .2s ease, color .2s ease, border-color .2s ease;
+  }
+  .faq-nav a:hover{ border-color: var(--terracotta); color: var(--terracotta-dark); }
+
+  .faq-group{ padding: 50px 0; border-top: 1px solid var(--line); }
+  .faq-group:first-of-type{ border-top: none; }
+  .faq-group-head{ max-width: 640px; margin: 0 auto 34px; text-align:center; }
+  .faq-list{ max-width: 760px; margin: 0 auto; display:flex; flex-direction:column; gap: 12px; }
+
+  details{
+    background: var(--white); border: 1px solid var(--line); border-radius: 14px;
+    padding: 6px 24px; transition: box-shadow .2s ease;
+  }
+  details[open]{ box-shadow: var(--shadow); }
+  summary{
+    cursor: pointer; list-style: none; padding: 18px 0;
+    display:flex; justify-content:space-between; align-items:center; gap: 16px;
+    font-weight: 600; font-size: 15.5px; color: var(--charcoal);
+  }
+  summary::-webkit-details-marker{ display:none; }
+  summary::after{
+    content:"+"; font-family:'Fraunces',serif; font-size: 22px; color: var(--terracotta);
+    flex-shrink:0; transition: transform .2s ease;
+  }
+  details[open] summary::after{ transform: rotate(45deg); }
+  details p{ padding: 0 0 20px; color: var(--charcoal-soft); font-size: 14.5px; max-width: 640px; }
+
+  .faq-cta{ background: var(--cream-2); text-align:center; padding: 70px 0; }
+  .faq-cta h2{ font-size: 26px; margin-bottom: 12px; }
+  .faq-cta p{ color: var(--charcoal-soft); margin-bottom: 26px; }
+</style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <a href="index.html" class="brand"><span class="paw">🐾</span> Manada</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="consumidores.html">Para tu mascota</a></li>
+      <li><a href="proveedores.html">Para marcas</a></li>
+      <li><a href="faq.html" class="active">FAQ</a></li>
+      <li><a href="contacto.html">Contacto</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="contacto.html" class="btn btn-primary" style="padding:11px 22px;">Sumate</a>
+    </div>
+  </nav>
+</header>
+
+<section class="page-hero">
+  <div class="container">
+    <span class="eyebrow">🐾 Ayuda</span>
+    <h1>Preguntas frecuentes</h1>
+    <p>Todo lo que preguntan los dueños de mascota, las marcas y los refugios antes de sumarse a Manada.</p>
+  </div>
+</section>
+
+<div class="container">
+  <div class="faq-nav">
+    <a href="#general">General</a>
+    <a href="#duenos">Para dueños de mascota</a>
+    <a href="#marcas">Para marcas</a>
+    <a href="#refugios">Para refugios</a>
+  </div>
+</div>
+
+<!-- GENERAL -->
+<section class="faq-group" id="general">
+  <div class="container">
+    <div class="faq-group-head">
+      <span class="section-tag">General</span>
+      <h2 style="font-size:28px;">Sobre Manada</h2>
+    </div>
+    <div class="faq-list">
+      <details open>
+        <summary>¿Qué es Manada?</summary>
+        <p>Una plataforma que integra la venta de alimento para mascotas, una app de servicios (veterinaria, adopciones, mascota perdida, marketplace) y una Asociación Civil que financia refugios con el 10% de cada venta. Comercio y causa en un mismo ecosistema.</p>
+      </details>
+      <details>
+        <summary>¿Cómo se financia el modelo si el alimento no tiene sobreprecio?</summary>
+        <p>La empresa vende alimento con margen mayorista preferencial negociado directamente con las marcas, y suma ingresos por comisiones de los demás servicios de la app (veterinaria, marketplace, directorio). El 10% que va a la ONG sale de ese margen, no se le cobra de más al usuario.</p>
+      </details>
+      <details>
+        <summary>¿Manada reemplaza a mi veterinario de confianza?</summary>
+        <p>No. El Botón de Pánico y el Directorio conectan con veterinarios validados para emergencias o consultas nuevas, pero no reemplazan la relación con tu veterinario habitual — podés seguir usándolo y sumar los servicios de Manada como complemento.</p>
+      </details>
+      <details>
+        <summary>¿Manada ya está disponible?</summary>
+        <p>Estamos en etapa de constitución y desarrollo del MVP. Podés dejar tu contacto para enterarte del lanzamiento y participar del piloto inicial.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- DUEÑOS -->
+<section class="faq-group" id="duenos">
+  <div class="container">
+    <div class="faq-group-head">
+      <span class="section-tag">Para dueños de mascota</span>
+      <h2 style="font-size:28px;">Comprar en Manada</h2>
+    </div>
+    <div class="faq-list">
+      <details>
+        <summary>¿El alimento cuesta más que en cualquier otro lado?</summary>
+        <p>No. El precio es el mismo que el de una compra puntual, con o sin calendarización. No cobramos cargo por suscripción.</p>
+      </details>
+      <details>
+        <summary>¿Puedo elegir a qué refugio va mi 10%?</summary>
+        <p>Sí. Al configurar tu compra elegís un refugio específico o "donde más se necesite". En tu perfil ves en tiempo real cuánto generaste y qué pasó con ese dinero.</p>
+      </details>
+      <details>
+        <summary>¿Cómo funciona el Botón de Pánico Veterinario?</summary>
+        <p>Con un toque accedés a una red de veterinarios validados con guardia activa, ves distancia, especialidad y tiempo estimado de respuesta antes de contactarlos.</p>
+      </details>
+      <details>
+        <summary>¿Qué pasa si mi mascota se pierde?</summary>
+        <p>Activás la alerta desde la app y se notifica a todos los usuarios dentro de un radio configurable, con la foto y los datos de tu mascota. Podés desactivarla apenas la encuentres.</p>
+      </details>
+      <details>
+        <summary>¿Puedo cambiar o cancelar la calendarización de mi alimento?</summary>
+        <p>Sí, en cualquier momento desde la app, sin costos ni penalidades.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- MARCAS -->
+<section class="faq-group" id="marcas">
+  <div class="container">
+    <div class="faq-group-head">
+      <span class="section-tag">Para marcas</span>
+      <h2 style="font-size:28px;">Alianzas comerciales</h2>
+    </div>
+    <div class="faq-list">
+      <details>
+        <summary>¿Cómo se convierte mi marca en aliada de Manada?</summary>
+        <p>Coordinamos una reunión inicial para entender tu marca, definimos condiciones comerciales (precio mayorista, co-inversión en contenido) y armamos juntos cómo se vería tu presencia en la app, los refugios y las redes. Escribinos desde <a href="contacto.html">Contacto</a> o la página de <a href="proveedores.html">Para marcas</a>.</p>
+      </details>
+      <details>
+        <summary>¿Qué datos de impacto voy a recibir?</summary>
+        <p>Reportes mensuales con volumen de alimento entregado, cantidad de refugios beneficiados e historias reales para tu comunicación de RSE.</p>
+      </details>
+      <details>
+        <summary>¿Hay exclusividad de categoría?</summary>
+        <p>Es un punto a definir según el volumen y el tipo de alianza — lo conversamos caso a caso en la reunión inicial.</p>
+      </details>
+      <details>
+        <summary>¿Qué necesita mi marca aportar además de producto?</summary>
+        <p>Precio mayorista preferencial y apertura a co-invertir en contenido conjunto (campañas, historias de refugios). El resto de la operación — logística, app, distribución — lo maneja Manada.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- REFUGIOS -->
+<section class="faq-group" id="refugios">
+  <div class="container">
+    <div class="faq-group-head">
+      <span class="section-tag">Para refugios</span>
+      <h2 style="font-size:28px;">Programa Refugio Asociado</h2>
+    </div>
+    <div class="faq-list">
+      <details>
+        <summary>¿Cómo se selecciona a los refugios asociados?</summary>
+        <p>Empezamos con 5 a 10 refugios piloto, priorizando organización mínima para reportar métricas básicas y disposición a sumar contenido y campañas de adopción.</p>
+      </details>
+      <details>
+        <summary>¿Qué compromisos tiene que asumir mi refugio?</summary>
+        <p>Publicar contenido mensual, participar de campañas de adopción trimestrales, proveer historias reales de rescate y reportar métricas básicas. A cambio recibís financiamiento mensual, alimento subsidiado y visibilidad en la app.</p>
+      </details>
+      <details>
+        <summary>¿Qué pasa si mi refugio es chico y no tiene muchas redes?</summary>
+        <p>Existe una base mínima garantizada para todos los refugios asociados, independiente del ranking de visibilidad — está pensada específicamente para proteger a los refugios más chicos.</p>
+      </details>
+      <details>
+        <summary>¿Cómo postulo a mi refugio?</summary>
+        <p>Escribinos desde <a href="contacto.html">Contacto</a> contándonos sobre tu refugio: cantidad de animales, ubicación y cómo venís sosteniendo la operación hoy.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="faq-cta">
+  <div class="container">
+    <h2>¿No encontraste tu respuesta?</h2>
+    <p>Escribinos directamente y te contestamos en persona.</p>
+    <a href="contacto.html" class="btn btn-primary">Ir a Contacto</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div>
+        <a href="index.html" class="brand">🐾 Manada</a>
+        <p>Plataforma integrada de servicios para mascotas y bienestar animal en Argentina. Comercio con causa, causa con impacto medible.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Producto</h5>
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="consumidores.html">Para tu mascota</a></li>
+          <li><a href="proveedores.html">Para marcas</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Organización</h5>
+        <ul>
+          <li><a href="#">La empresa (S.A.S.)</a></li>
+          <li><a href="#">La ONG</a></li>
+          <li><a href="#">Informe de impacto</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Ayuda</h5>
+        <ul>
+          <li><a href="faq.html">Preguntas frecuentes</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+          <li><a href="#">Instagram</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Manada — Documento de trabajo, versión de bosquejo.</span>
+      <span>Hecho con causa en Argentina 🐾</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

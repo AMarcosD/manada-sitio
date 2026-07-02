@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contacto — Manada</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+  .page-hero{ padding: 70px 0 20px; text-align:center; }
+  .page-hero h1{ font-size: 42px; margin-bottom: 14px; }
+  .page-hero p{ color: var(--charcoal-soft); font-size: 16.5px; max-width: 520px; margin: 0 auto; }
+
+  .contact-wrap{ padding: 50px 0 110px; }
+  .contact-grid{ display:grid; grid-template-columns: 1fr 1.1fr; gap: 60px; align-items:flex-start; }
+
+  .contact-info{ display:flex; flex-direction:column; gap: 16px; }
+  .info-card{
+    background: var(--white); border: 1px solid var(--line); border-radius: 16px;
+    padding: 22px 24px; display:flex; gap: 16px; align-items:flex-start;
+  }
+  .info-card .icon{
+    width: 42px; height:42px; border-radius: 12px; background: var(--cream-2);
+    display:flex; align-items:center; justify-content:center; font-size:18px; flex-shrink:0;
+  }
+  .info-card h4{ font-family:'Fraunces',serif; font-size: 16px; margin-bottom: 4px; }
+  .info-card p{ font-size: 14px; color: var(--charcoal-soft); }
+  .info-card a{ color: var(--terracotta-dark); font-weight:600; }
+
+  .contact-form{
+    background: var(--white); border: 1px solid var(--line); border-radius: var(--radius);
+    padding: 36px; box-shadow: var(--shadow);
+  }
+  .form-row{ display:grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+  .form-field{ display:flex; flex-direction:column; gap: 6px; margin-bottom: 16px; }
+  .form-field label{ font-size: 13px; font-weight: 700; color: var(--charcoal-soft); }
+  .form-field input, .form-field select, .form-field textarea{
+    padding: 13px 16px; border-radius: 10px; border: 1.5px solid var(--line);
+    font-family:'Inter',sans-serif; font-size: 14.5px; color: var(--charcoal); background: var(--cream);
+  }
+  .form-field textarea{ resize:none; height: 120px; }
+  .form-field input:focus, .form-field select:focus, .form-field textarea:focus{ outline:none; border-color: var(--terracotta); }
+  .contact-form .btn{ width:100%; padding: 16px; }
+
+  @media (max-width: 980px){
+    .contact-grid{ grid-template-columns: 1fr; }
+    .form-row{ grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <a href="index.html" class="brand"><span class="paw">🐾</span> Manada</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="consumidores.html">Para tu mascota</a></li>
+      <li><a href="proveedores.html">Para marcas</a></li>
+      <li><a href="faq.html">FAQ</a></li>
+      <li><a href="contacto.html" class="active">Contacto</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="contacto.html" class="btn btn-primary" style="padding:11px 22px;">Sumate</a>
+    </div>
+  </nav>
+</header>
+
+<section class="page-hero">
+  <div class="container">
+    <span class="eyebrow">🐾 Hablemos</span>
+    <h1>Contanos quién sos y para qué nos escribís</h1>
+    <p>Dueño de mascota, marca, refugio o simple curioso — respondemos a todos, solo necesitamos un poco de contexto.</p>
+  </div>
+</section>
+
+<section class="contact-wrap">
+  <div class="container">
+    <div class="contact-grid">
+
+      <div class="contact-info">
+        <div class="info-card">
+          <div class="icon">✉️</div>
+          <div>
+            <h4>Email general</h4>
+            <p><a href="mailto:hola@manada.com.ar">hola@manada.com.ar</a></p>
+          </div>
+        </div>
+        <div class="info-card">
+          <div class="icon">🏷️</div>
+          <div>
+            <h4>Sos una marca</h4>
+            <p>Mirá la propuesta completa en <a href="proveedores.html">Para marcas</a> antes de escribirnos, así llegamos más rápido a lo concreto.</p>
+          </div>
+        </div>
+        <div class="info-card">
+          <div class="icon">🏠</div>
+          <div>
+            <h4>Sos un refugio</h4>
+            <p>Contanos cuántos animales tenés hoy y cómo sostenés la operación — es la info que más nos ayuda a evaluar la postulación.</p>
+          </div>
+        </div>
+        <div class="info-card">
+          <div class="icon">📍</div>
+          <div>
+            <h4>Ubicación</h4>
+            <p>Buenos Aires, Argentina — operación remota por ahora, sin oficina física.</p>
+          </div>
+        </div>
+        <div class="info-card">
+          <div class="icon">📱</div>
+          <div>
+            <h4>Redes</h4>
+            <p><a href="#">Instagram</a> · <a href="#">LinkedIn</a></p>
+          </div>
+        </div>
+      </div>
+
+      <form class="contact-form" onsubmit="return false;">
+        <div class="form-row">
+          <div class="form-field">
+            <label for="nombre">Nombre</label>
+            <input id="nombre" type="text" placeholder="Tu nombre" required>
+          </div>
+          <div class="form-field">
+            <label for="email">Email</label>
+            <input id="email" type="email" placeholder="tu@email.com" required>
+          </div>
+        </div>
+        <div class="form-field">
+          <label for="motivo">¿Por qué nos escribís?</label>
+          <select id="motivo" required>
+            <option value="" disabled selected>Elegí una opción</option>
+            <option>Soy dueño de una mascota</option>
+            <option>Represento una marca de alimento</option>
+            <option>Quiero postular mi refugio</option>
+            <option>Otra consulta</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label for="mensaje">Mensaje</label>
+          <textarea id="mensaje" placeholder="Contanos un poco más..."></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Enviar mensaje</button>
+      </form>
+
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div>
+        <a href="index.html" class="brand">🐾 Manada</a>
+        <p>Plataforma integrada de servicios para mascotas y bienestar animal en Argentina. Comercio con causa, causa con impacto medible.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Producto</h5>
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="consumidores.html">Para tu mascota</a></li>
+          <li><a href="proveedores.html">Para marcas</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Organización</h5>
+        <ul>
+          <li><a href="#">La empresa (S.A.S.)</a></li>
+          <li><a href="#">La ONG</a></li>
+          <li><a href="#">Informe de impacto</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Ayuda</h5>
+        <ul>
+          <li><a href="faq.html">Preguntas frecuentes</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+          <li><a href="#">Instagram</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Manada — Documento de trabajo, versión de bosquejo.</span>
+      <span>Hecho con causa en Argentina 🐾</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Manada — Alimento, cuidado y adopción con impacto real</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+  /* HERO */
+  .hero{ padding: 90px 0 60px; position: relative; }
+  .hero .container{ display:grid; grid-template-columns: 1.05fr 0.95fr; gap: 60px; align-items:center; }
+  .hero h1{ font-size: 52px; line-height: 1.08; margin-bottom: 22px; }
+  .hero h1 em{ font-style: normal; color: var(--terracotta); }
+  .hero p.lead{ font-size: 18px; color: var(--charcoal-soft); max-width: 480px; margin-bottom: 34px; }
+  .hero-actions{ display:flex; gap:16px; margin-bottom: 40px; flex-wrap: wrap; }
+  .hero-trust{ display:flex; gap: 28px; flex-wrap: wrap; }
+  .hero-trust div{ font-size: 13px; color: var(--charcoal-soft); }
+  .hero-trust strong{ display:block; font-family:'Fraunces',serif; font-size: 22px; color: var(--charcoal); }
+  .hero-visual{ position: relative; }
+  .hero-visual .img-frame{ height: 420px; }
+  .badge-float{
+    position:absolute; bottom: -22px; left: -22px;
+    background: var(--forest); color: var(--white);
+    padding: 18px 22px; border-radius: 16px; box-shadow: var(--shadow-lg);
+    font-size: 14px; max-width: 220px;
+  }
+  .badge-float strong{ display:block; font-family:'Fraunces',serif; font-size: 24px; color: var(--gold); }
+
+  /* STATS */
+  .stats-strip{ background: var(--forest); color: var(--white); }
+  .stats-strip .container{ display:grid; grid-template-columns: repeat(4,1fr); gap: 20px; }
+  .stat{ padding: 10px 0; border-left: 2px solid rgba(255,255,255,0.2); padding-left: 24px; }
+  .stat h3{ color: var(--gold); font-size: 34px; margin-bottom: 6px; }
+  .stat p{ font-size: 14px; opacity: 0.85; }
+
+  /* PROBLEMA */
+  .problema .container{ display:grid; grid-template-columns: 1fr 1fr; gap: 70px; align-items:center; }
+  .problema h2{ font-size: 36px; margin-bottom: 22px; }
+  .problema p{ color: var(--charcoal-soft); margin-bottom: 16px; font-size: 16.5px; }
+  .problema .highlight{
+    background: var(--white); border-radius: 16px; padding: 20px 22px; margin-top: 20px;
+    border-left: 4px solid var(--terracotta); box-shadow: var(--shadow);
+    font-family:'Fraunces',serif; font-size: 17px;
+  }
+  .problema .img-frame{ height: 420px; }
+
+  /* MODELO - dos motores */
+  .modelo{ background: var(--cream-2); }
+  .engines{ display:grid; grid-template-columns: 1fr 1fr; gap: 28px; margin-bottom: 28px; }
+  .engine-card{ background: var(--white); border-radius: var(--radius); padding: 36px; box-shadow: var(--shadow); border: 1px solid var(--line); }
+  .engine-card .tag{ display:inline-block; font-size: 12px; font-weight:700; letter-spacing:.05em; text-transform:uppercase; padding: 6px 12px; border-radius: 999px; margin-bottom:18px; }
+  .engine-card.a .tag{ background: rgba(224,113,75,0.12); color: var(--terracotta-dark); }
+  .engine-card.b .tag{ background: rgba(47,74,61,0.12); color: var(--forest); }
+  .engine-card h3{ font-size: 24px; margin-bottom: 12px; }
+  .engine-card p{ color: var(--charcoal-soft); font-size: 15px; }
+  .flow-arrow{ display:flex; justify-content:center; margin: 6px 0; font-size: 26px; color: var(--charcoal-soft); }
+  .ong-card{ background: var(--forest); color: var(--white); border-radius: var(--radius); padding: 40px; text-align:center; box-shadow: var(--shadow-lg); }
+  .ong-card h3{ color: var(--white); font-size: 26px; margin-bottom: 10px; }
+  .ong-card p{ opacity: 0.85; max-width: 560px; margin: 0 auto; }
+  .split-badges{ display:flex; justify-content:center; gap: 40px; margin-top: 26px; }
+  .split-badges div strong{ display:block; font-size: 32px; font-family:'Fraunces',serif; color: var(--gold); }
+  .split-badges div span{ font-size: 13px; opacity: 0.8; }
+
+  /* APP FEATURES */
+  .features .section-head{ margin-bottom: 50px; }
+  .feature-grid{ display:grid; grid-template-columns: repeat(4, 1fr); gap: 22px; }
+  .feature-card{ background: var(--white); border-radius: 18px; padding: 28px 24px; border: 1px solid var(--line); transition: transform .2s ease, box-shadow .2s ease; }
+  .feature-card:hover{ transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+  .feature-icon{ width: 50px; height: 50px; border-radius: 14px; display:flex; align-items:center; justify-content:center; background: var(--cream-2); font-size: 22px; margin-bottom: 18px; }
+  .feature-card h4{ font-family:'Fraunces',serif; font-size: 18px; margin-bottom: 8px; }
+  .feature-card p{ font-size: 14px; color: var(--charcoal-soft); margin-bottom: 14px; }
+  .feature-card .money{ font-size: 12px; font-weight: 700; color: var(--terracotta-dark); text-transform: uppercase; letter-spacing: .03em; }
+
+  /* REFUGIOS */
+  .refugios{ background: var(--cream-2); }
+  .refugios .container{ display:grid; grid-template-columns: 0.9fr 1.1fr; gap: 60px; align-items:center; }
+  .refugios .img-frame{ height: 460px; }
+  .commit-list{ display:flex; flex-direction:column; gap: 14px; margin-top: 24px; }
+  .commit-item{ background: var(--white); border-radius: 14px; padding: 16px 20px; display:flex; gap:14px; align-items:flex-start; border: 1px solid var(--line); }
+  .commit-item .dot{ width:8px; height:8px; border-radius:50%; background: var(--terracotta); margin-top: 8px; flex-shrink:0; }
+  .commit-item p{ font-size: 14.5px; color: var(--charcoal-soft); }
+  .commit-item strong{ color: var(--charcoal); }
+
+  /* GALERIA */
+  .gallery-grid{ display:grid; grid-template-columns: repeat(4,1fr); gap: 20px; }
+  .gallery-grid .img-frame{ height: 220px; }
+
+  /* CTA FINAL */
+  .cta-final{ background: linear-gradient(135deg, var(--terracotta), var(--terracotta-dark)); color: var(--white); text-align:center; border-radius: 28px; margin: 0 32px; padding: 70px 40px; }
+  .cta-final h2{ color: var(--white); font-size: 36px; margin-bottom: 14px; }
+  .cta-final p{ opacity: 0.9; max-width: 520px; margin: 0 auto 32px; }
+  .cta-form{ display:flex; gap: 12px; justify-content:center; flex-wrap: wrap; }
+  .cta-form input{ padding: 15px 20px; border-radius: 999px; border: none; min-width: 300px; font-family:'Inter',sans-serif; font-size: 15px; }
+
+  @media (max-width: 980px){
+    .hero .container, .problema .container, .refugios .container{ grid-template-columns: 1fr; }
+    .engines{ grid-template-columns: 1fr; }
+    .stats-strip .container{ grid-template-columns: repeat(2,1fr); }
+    .feature-grid{ grid-template-columns: repeat(2,1fr); }
+    .gallery-grid{ grid-template-columns: repeat(2,1fr); }
+    .hero h1{ font-size: 38px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <a href="index.html" class="brand"><span class="paw">🐾</span> Manada</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="consumidores.html" class="active">Para tu mascota</a></li>
+      <li><a href="proveedores.html">Para marcas</a></li>
+      <li><a href="faq.html">FAQ</a></li>
+      <li><a href="contacto.html">Contacto</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="contacto.html" class="btn btn-primary" style="padding:11px 22px;">Sumate</a>
+    </div>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-copy">
+      <span class="eyebrow">🐾 Plataforma + ONG · Argentina</span>
+      <h1>Cada bolsa de alimento alimenta <em>dos</em> hogares.</h1>
+      <p class="lead">Manada conecta comercio y causa: comprás el alimento que tu mascota ya necesita, elegís a qué refugio ayuda tu compra, y ves el impacto en tiempo real. Sin sobreprecio, sin intermediarios invisibles.</p>
+      <div class="hero-actions">
+        <a href="contacto.html" class="btn btn-primary">Quiero sumarme</a>
+        <a href="#modelo" class="btn btn-outline">Cómo funciona ↓</a>
+      </div>
+      <div class="hero-trust">
+        <div><strong>10%</strong>de cada compra a refugios</div>
+        <div><strong>+30M</strong>mascotas en Argentina</div>
+        <div><strong>5-10</strong>refugios piloto al lanzar</div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="img-frame">
+        <img src="imagenes/hero-principal.jpg" alt="Dueña sacándose una selfie con su perro al aire libre" style="object-position: 70% 40%;">
+      </div>
+      <div class="badge-float">
+        <strong>+6M</strong>
+        perros y gatos en situación de calle en Argentina hoy
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats-strip" style="padding:50px 0;">
+  <div class="container">
+    <div class="stat"><h3>USD 1.500M</h3><p>Mercado de alimento para mascotas en Argentina (2024)</p></div>
+    <div class="stat"><h3>16%</h3><p>Crecimiento anual proyectado del mercado</p></div>
+    <div class="stat"><h3>90%</h3><p>Del presupuesto en mascotas se va en alimento</p></div>
+    <div class="stat"><h3>8/10</h3><p>Hogares argentinos tienen una mascota</p></div>
+  </div>
+</section>
+
+<!-- PROBLEMA -->
+<section class="problema" id="problema">
+  <div class="container">
+    <div>
+      <span class="section-tag">El problema</span>
+      <h2>Los refugios sostienen solos lo que debería ser una responsabilidad compartida.</h2>
+      <p>Más de 6 millones de perros y gatos viven en situación de calle en Argentina. Los refugios que los sostienen dependen casi 100% de donaciones voluntarias, rifas y ferias — sin apoyo estatal sistemático, mientras la inflación aumenta el abandono y erosiona la capacidad de donar.</p>
+      <p>Mientras tanto, el mercado de alimento para mascotas mueve USD 1.500 millones al año en Argentina y crece a doble dígito. Nadie había integrado todavía comercio, servicios y causa social en una sola plataforma.</p>
+      <div class="highlight">"El dueño de mascota hoy usa 4 o 5 apps distintas para resolver lo que Manada integra en una sola."</div>
+    </div>
+    <div class="img-frame">
+      <img src="imagenes/problema-refugio.jpg" alt="Perro en un refugio mirando a través de un alambrado mientras una mano lo acaricia">
+    </div>
+  </div>
+</section>
+
+<!-- MODELO -->
+<section class="modelo" id="modelo">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-tag" style="display:block;">El modelo</span>
+      <h2>Dos motores, una sola manada</h2>
+      <p>La empresa y la app funcionan en paralelo para sostener, con la misma fuerza, un fondo permanente para el bienestar animal.</p>
+    </div>
+
+    <div class="engines">
+      <div class="engine-card a">
+        <span class="tag">Motor 1 · Alimento</span>
+        <h3>Convenios con marcas líderes</h3>
+        <p>Comercializamos alimento de marcas reconocidas bajo convenio. Es el ancla de recurrencia: el cliente vuelve todos los meses porque su mascota necesita comer.</p>
+      </div>
+      <div class="engine-card b">
+        <span class="tag">Motor 2 · App</span>
+        <h3>Ecosistema digital de servicios</h3>
+        <p>Calendarización, veterinaria on-demand, mascota perdida, adopciones y marketplace. Cuantos más servicios usa el dueño, más difícil es que se vaya.</p>
+      </div>
+    </div>
+
+    <div class="flow-arrow">↓</div>
+
+    <div class="ong-card">
+      <h3>Asociación Civil (ONG)</h3>
+      <p>Administra el fondo del 10% de las ventas y las donaciones, y lo distribuye entre los refugios asociados según programas de impacto medible.</p>
+      <div class="split-badges">
+        <div><strong>90%</strong><span>Operación y crecimiento</span></div>
+        <div><strong>10%</strong><span>Fondo para refugios</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- APP FEATURES -->
+<section class="features" id="app">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-tag" style="display:block;">La app</span>
+      <h2>Todo lo que tu mascota necesita, en un solo lugar</h2>
+      <p>Cada feature resuelve un dolor real y genera su propio modelo de monetización.</p>
+    </div>
+    <div class="feature-grid">
+
+      <div class="feature-card">
+        <div class="feature-icon">📦</div>
+        <h4>Alimento calendarizado</h4>
+        <p>Programá la frecuencia de entrega, mismo precio que la compra puntual, sin cargos ocultos.</p>
+        <span class="money">Margen del producto</span>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">❤️</div>
+        <h4>Elegí tu refugio</h4>
+        <p>Destiná tu 10% a un refugio específico y mirá en tiempo real qué generó tu compra.</p>
+        <span class="money">Fidelización / LTV</span>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">🚨</div>
+        <h4>Botón de pánico veterinario</h4>
+        <p>Un toque para acceder a veterinarios validados con guardia activa, por distancia y especialidad.</p>
+        <span class="money">Comisión por derivación</span>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">🤖</div>
+        <h4>Preconsulta con IA</h4>
+        <p>Describí los síntomas antes de la consulta: orientación preliminar y resumen clínico para el veterinario.</p>
+        <span class="money">Comisión + suscripción premium</span>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">🩺</div>
+        <h4>Directorio de veterinarios</h4>
+        <p>Consultas programadas a domicilio o en consultorio, con calificaciones y disponibilidad real.</p>
+        <span class="money">Suscripción + comisión por turno</span>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">📍</div>
+        <h4>Mascota perdida</h4>
+        <p>Alerta geolocalizada a toda la comunidad cercana con foto y datos, en un solo toque.</p>
+        <span class="money">Gratis · premium en fase 2</span>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">🛍️</div>
+        <h4>Marketplace</h4>
+        <p>Juguetes, camas, correas y accesorios curados, con posibilidad de venta de terceros.</p>
+        <span class="money">Margen / comisión</span>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">🏡</div>
+        <h4>Adopciones</h4>
+        <p>Publicaciones de refugios y particulares, matching por compatibilidad y seguimiento post-adopción.</p>
+        <span class="money">Publicaciones destacadas</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- REFUGIOS -->
+<section class="refugios" id="refugios">
+  <div class="container">
+    <div class="img-frame">
+      <img src="imagenes/refugios-retiro.png" alt="Manos sosteniendo una caja con golosinas y alimento para mascotas" style="object-position: 25% 50%;">
+    </div>
+    <div>
+      <span class="section-tag">Programa Refugio Asociado</span>
+      <h2 style="font-size:34px; margin-bottom:16px;">Socios activos, no receptores pasivos</h2>
+      <p style="color:var(--charcoal-soft); font-size:16px;">Cada refugio tiene un perfil público con métricas de impacto. El que más visibiliza su trabajo, más apoyo recibe — con un piso garantizado para proteger a los más pequeños.</p>
+      <div class="commit-list">
+        <div class="commit-item"><span class="dot"></span><p><strong>Financiamiento mensual</strong> del fondo del 10% + alimento subsidiado.</p></div>
+        <div class="commit-item"><span class="dot"></span><p><strong>Visibilidad</strong> en la app y redes del grupo, con ranking mensual.</p></div>
+        <div class="commit-item"><span class="dot"></span><p><strong>A cambio:</strong> contenido mensual, campañas de adopción y métricas de reporte.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALERIA -->
+<section>
+  <div class="container">
+    <div class="section-head">
+      <span class="section-tag" style="display:block;">Impacto real</span>
+      <h2>Historias que ya están pasando</h2>
+    </div>
+    <div class="gallery-grid">
+      <div class="img-frame"><img src="imagenes/galeria-portada.jpg" alt="Dos niños abrazando a su perro adoptado"></div>
+      <div class="img-frame"><img src="imagenes/galeria-voluntario.jpg" alt="Voluntarios paseando varios perros de refugio"></div>
+      <div class="img-frame"><img src="imagenes/galeria-veterinario.jpg" alt="Veterinaria revisando la oreja de un perro"></div>
+      <div class="img-frame"><img src="imagenes/galeria-familia.jpg" alt="Familia caminando con su perro por el bosque"></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section id="contacto" style="padding-top:0;">
+  <div class="cta-final">
+    <h2>Sé parte de la primera manada</h2>
+    <p>Dejá tu email para enterarte del lanzamiento, sumar tu refugio como aliado o ser parte del piloto.</p>
+    <form class="cta-form" onsubmit="return false;">
+      <input type="email" placeholder="tu@email.com" required>
+      <button type="submit" class="btn btn-light">Quiero sumarme</button>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div>
+        <a href="index.html" class="brand">🐾 Manada</a>
+        <p>Plataforma integrada de servicios para mascotas y bienestar animal en Argentina. Comercio con causa, causa con impacto medible.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Producto</h5>
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="consumidores.html">Para tu mascota</a></li>
+          <li><a href="proveedores.html">Para marcas</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Organización</h5>
+        <ul>
+          <li><a href="#">La empresa (S.A.S.)</a></li>
+          <li><a href="#">La ONG</a></li>
+          <li><a href="#">Informe de impacto</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Ayuda</h5>
+        <ul>
+          <li><a href="faq.html">Preguntas frecuentes</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+          <li><a href="#">Instagram</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Manada — Documento de trabajo, versión de bosquejo.</span>
+      <span>Hecho con causa en Argentina 🐾</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

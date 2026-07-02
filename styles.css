@@ -1,0 +1,139 @@
+/* ============================================================
+   MANADA — Hoja de estilos compartida
+   Tokens de marca + componentes reutilizables (nav, footer, botones,
+   placeholders de imagen). Cada página suma su propio <style> con
+   lo específico de esa sección.
+   ============================================================ */
+
+:root{
+  --cream: #FAF5EC;
+  --cream-2: #F2EADA;
+  --charcoal: #2B2621;
+  --charcoal-soft: #5B5147;
+  --terracotta: #E0714B;
+  --terracotta-dark: #C4573A;
+  --forest: #2F4A3D;
+  --forest-light: #3E6350;
+  --gold: #D9A441;
+  --sage: #7C9082;
+  --sage-dark: #5F7264;
+  --white: #FFFFFF;
+  --line: rgba(43,38,33,0.12);
+  --radius: 20px;
+  --shadow: 0 10px 30px rgba(43,38,33,0.08);
+  --shadow-lg: 0 20px 50px rgba(43,38,33,0.14);
+}
+
+*{ box-sizing: border-box; margin:0; padding:0; }
+html{ scroll-behavior: smooth; }
+body{
+  font-family: 'Inter', sans-serif;
+  color: var(--charcoal);
+  background: var(--cream);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+h1, h2, h3, .brand{
+  font-family: 'Fraunces', serif;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--charcoal);
+}
+a{ color: inherit; text-decoration: none; }
+ul{ list-style: none; }
+img{ max-width: 100%; display:block; }
+section{ padding: 110px 0; }
+.container{ max-width: 1180px; margin: 0 auto; padding: 0 32px; }
+
+.eyebrow{
+  display:inline-flex; align-items:center; gap:8px;
+  font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--terracotta-dark);
+  background: rgba(224,113,75,0.1);
+  padding: 8px 16px; border-radius: 999px;
+  margin-bottom: 20px;
+}
+.eyebrow.green{ color: var(--forest); background: rgba(47,74,61,0.1); }
+.eyebrow.sage{ color: var(--sage-dark); background: rgba(124,144,130,0.14); }
+
+.section-tag{ font-size: 14px; font-weight: 700; color: var(--terracotta-dark); text-transform: uppercase; letter-spacing: .06em; margin-bottom: 14px; display:block; }
+.section-head{ text-align:center; max-width: 620px; margin: 0 auto 60px; }
+.section-head h2{ font-size: 38px; margin-bottom: 16px; }
+.section-head p{ color: var(--charcoal-soft); font-size: 17px; }
+
+/* Buttons */
+.btn{
+  display:inline-flex; align-items:center; justify-content:center; gap:8px;
+  padding: 15px 28px; border-radius: 999px; font-weight: 600; font-size: 15px;
+  cursor:pointer; transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+  white-space: nowrap; border: none; font-family:'Inter',sans-serif;
+}
+.btn-primary{ background: var(--terracotta); color: var(--white); box-shadow: var(--shadow); }
+.btn-primary:hover{ background: var(--terracotta-dark); transform: translateY(-2px); }
+.btn-forest{ background: var(--forest); color: var(--white); box-shadow: var(--shadow); }
+.btn-forest:hover{ background: var(--forest-light); transform: translateY(-2px); }
+.btn-outline{ background: transparent; color: var(--charcoal); border: 1.5px solid var(--line); }
+.btn-outline:hover{ border-color: var(--charcoal); transform: translateY(-2px); }
+.btn-light{ background: var(--white); color: var(--forest); }
+.btn-light:hover{ transform: translateY(-2px); box-shadow: var(--shadow); }
+
+/* Placeholder de imagen (sin foto todavía) */
+.img-placeholder{
+  position: relative;
+  display:flex; flex-direction:column; align-items:center; justify-content:center; gap:10px;
+  text-align:center;
+  background: repeating-linear-gradient(135deg, #EFE6D8, #EFE6D8 10px, #F5EEE2 10px, #F5EEE2 20px);
+  border: 1.5px dashed rgba(43,38,33,0.28);
+  border-radius: var(--radius);
+  color: var(--charcoal-soft);
+  padding: 24px;
+  min-height: 220px;
+}
+.img-placeholder .icon{ font-size: 28px; opacity: 0.6; }
+.img-placeholder .label{ font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; color: var(--charcoal); }
+.img-placeholder .desc{ font-size: 13px; max-width: 260px; color: var(--charcoal-soft); }
+
+/* Imagen real ya cargada */
+.img-frame{ border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); }
+.img-frame img{ width:100%; height:100%; object-fit: cover; object-position: center; display:block; }
+
+/* ============ NAV (compartida en todas las páginas) ============ */
+header{
+  position: sticky; top:0; z-index: 100;
+  background: rgba(250,245,236,0.85);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
+}
+nav{
+  max-width: 1180px; margin:0 auto; padding: 18px 32px;
+  display:flex; align-items:center; justify-content:space-between;
+}
+.brand{ font-size: 22px; display:flex; align-items:center; gap:8px; }
+.brand .paw{ color: var(--terracotta); }
+.nav-links{ display:flex; gap: 32px; font-weight: 600; font-size: 14.5px; }
+.nav-links a{ opacity: 0.72; transition: opacity .2s; padding-bottom: 4px; border-bottom: 2px solid transparent; }
+.nav-links a:hover{ opacity: 1; }
+.nav-links a.active{ opacity: 1; border-bottom-color: var(--terracotta); }
+.nav-cta{ display:flex; align-items:center; gap:16px; }
+
+@media (max-width: 980px){
+  .nav-links{ display:none; }
+}
+
+/* ============ FOOTER (compartido) ============ */
+footer{ padding: 70px 0 30px; }
+.footer-top{ display:grid; grid-template-columns: 1.3fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 50px; }
+.footer-top .brand{ margin-bottom: 14px; }
+.footer-top p{ color: var(--charcoal-soft); font-size: 14px; max-width: 280px; }
+.footer-col h5{ font-size: 13px; text-transform: uppercase; letter-spacing: .06em; margin-bottom: 16px; color: var(--charcoal-soft); }
+.footer-col ul{ display:flex; flex-direction:column; gap: 10px; }
+.footer-col a{ font-size: 14.5px; color: var(--charcoal); opacity: 0.8; }
+.footer-col a:hover{ opacity: 1; }
+.footer-bottom{
+  border-top: 1px solid var(--line); padding-top: 24px;
+  display:flex; justify-content:space-between; align-items:center; font-size: 13px; color: var(--charcoal-soft);
+  flex-wrap: wrap; gap: 10px;
+}
+@media (max-width: 980px){
+  .footer-top{ grid-template-columns: 1fr 1fr; }
+}
