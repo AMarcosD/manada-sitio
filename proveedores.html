@@ -116,7 +116,14 @@
   .cta-final h2{ color: var(--white); font-size: 32px; margin-bottom: 14px; }
   .cta-final p{ opacity: 0.9; max-width: 520px; margin: 0 auto 30px; }
   .cta-form{ display:grid; grid-template-columns: 1fr 1fr; gap: 12px; max-width: 520px; margin: 0 auto; }
-  .cta-form input, .cta-form textarea{ padding: 14px 18px; border-radius: 12px; border:none; font-family:'Inter',sans-serif; font-size: 14px; width:100%; }
+  .cta-form input, .cta-form textarea{
+    padding: 14px 18px; border-radius: 12px; border: 1.5px solid transparent;
+    font-family:'Inter',sans-serif; font-size: 14px; width:100%;
+    transition: border-color .15s var(--ease-out-expo), box-shadow .15s var(--ease-out-expo);
+  }
+  .cta-form input:focus, .cta-form textarea:focus{
+    outline:none; border-color: var(--gold); box-shadow: 0 0 0 4px rgba(217,164,65,0.25);
+  }
   .cta-form textarea{ grid-column: 1 / -1; resize: none; height: 80px; }
   .cta-form button{ grid-column: 1 / -1; }
 

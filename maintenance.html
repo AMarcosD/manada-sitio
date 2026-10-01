@@ -14,7 +14,12 @@
   .soon h1{ font-size: 34px; margin-bottom: 16px; }
   .soon p{ color: var(--charcoal-soft); font-size: 16px; margin-bottom: 32px; }
   .soon .cta-form{ display:flex; gap: 10px; justify-content:center; flex-wrap: wrap; }
-  .soon input{ padding: 14px 18px; border-radius: 999px; border: 1.5px solid var(--line); min-width: 260px; font-family:'Inter',sans-serif; font-size: 14.5px; }
+  .soon input{
+    padding: 14px 18px; border-radius: 999px; border: 1.5px solid var(--line); min-width: 260px;
+    font-family:'Inter',sans-serif; font-size: 14.5px;
+    transition: border-color .15s var(--ease-out-expo), box-shadow .15s var(--ease-out-expo);
+  }
+  .soon input:focus{ outline:none; border-color: var(--terracotta); box-shadow: 0 0 0 4px rgba(224,113,75,0.15); }
 </style>
 </head>
 <body>
