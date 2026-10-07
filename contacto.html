@@ -9,6 +9,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
+<script src="supabase-config.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script src="forms.js"></script>
 <style>
   .page-hero{ padding: 70px 0 20px; text-align:center; }
   .page-hero h1{ font-size: 42px; margin-bottom: 14px; }
@@ -61,8 +64,8 @@
     <a href="index.html" class="brand"><span class="paw">🐾</span> Manada</a>
     <ul class="nav-links">
       <li><a href="index.html">Inicio</a></li>
-      <li><a href="consumidores.html">Para tu mascota</a></li>
-      <li><a href="proveedores.html">Para marcas</a></li>
+      <li><a href="nosotros.html">Nosotros</a></li>
+      <li><a href="proveedores.html">Para empresas</a></li>
       <li><a href="faq.html">FAQ</a></li>
       <li><a href="contacto.html" class="active">Contacto</a></li>
     </ul>
@@ -76,7 +79,7 @@
   <div class="container">
     <span class="eyebrow">🐾 Hablemos</span>
     <h1>Contanos quién sos y para qué nos escribís</h1>
-    <p>Dueño de mascota, marca, refugio o simple curioso — respondemos a todos, solo necesitamos un poco de contexto.</p>
+    <p>Empresa, refugio, hogar de tránsito u organización de rescate: respondemos a todos, solo necesitamos un poco de contexto.</p>
   </div>
 </section>
 
@@ -95,15 +98,15 @@
         <div class="info-card">
           <div class="icon">🏷️</div>
           <div>
-            <h4>Sos una marca</h4>
-            <p>Mirá la propuesta completa en <a href="proveedores.html">Para marcas</a> antes de escribirnos, así llegamos más rápido a lo concreto.</p>
+            <h4>Sos una empresa</h4>
+            <p>Mirá la propuesta completa en <a href="proveedores.html">Para empresas</a> antes de escribirnos, así llegamos más rápido a lo concreto.</p>
           </div>
         </div>
         <div class="info-card">
           <div class="icon">🏠</div>
           <div>
-            <h4>Sos un refugio</h4>
-            <p>Contanos cuántos animales tenés hoy y cómo sostenés la operación — es la info que más nos ayuda a evaluar la postulación.</p>
+            <h4>Sos un refugio u hogar de tránsito</h4>
+            <p>Contanos cuántos animales tenés hoy, qué necesitás y cómo sostenés la operación. Es la info que más nos ayuda a validar la necesidad.</p>
           </div>
         </div>
         <div class="info-card">
@@ -122,30 +125,30 @@
         </div>
       </div>
 
-      <form class="contact-form" onsubmit="return false;">
+      <form class="contact-form" data-lead-form="contacto">
         <div class="form-row">
           <div class="form-field">
             <label for="nombre">Nombre</label>
-            <input id="nombre" type="text" placeholder="Tu nombre" required>
+            <input id="nombre" name="nombre" type="text" placeholder="Tu nombre" required>
           </div>
           <div class="form-field">
             <label for="email">Email</label>
-            <input id="email" type="email" placeholder="tu@email.com" required>
+            <input id="email" name="email" type="email" placeholder="tu@email.com" required>
           </div>
         </div>
         <div class="form-field">
           <label for="motivo">¿Por qué nos escribís?</label>
-          <select id="motivo" required>
+          <select id="motivo" name="motivo" required>
             <option value="" disabled selected>Elegí una opción</option>
-            <option>Soy dueño de una mascota</option>
-            <option>Represento una marca de alimento</option>
-            <option>Quiero postular mi refugio</option>
+            <option>Represento una empresa</option>
+            <option>Represento un refugio u organización de rescate</option>
+            <option>Tengo un hogar de tránsito</option>
             <option>Otra consulta</option>
           </select>
         </div>
         <div class="form-field">
           <label for="mensaje">Mensaje</label>
-          <textarea id="mensaje" placeholder="Contanos un poco más..."></textarea>
+          <textarea id="mensaje" name="mensaje" placeholder="Contanos un poco más..."></textarea>
         </div>
         <button type="submit" class="btn btn-primary">Enviar mensaje</button>
       </form>
@@ -160,22 +163,21 @@
     <div class="footer-top">
       <div>
         <a href="index.html" class="brand">🐾 Manada</a>
-        <p>Plataforma integrada de servicios para mascotas y bienestar animal en Argentina. Comercio con causa, causa con impacto medible.</p>
+        <p>Red que conecta empresas con refugios, hogares de tránsito y organizaciones de rescate animal. Confianza, coordinación e impacto verificable.</p>
       </div>
       <div class="footer-col">
-        <h5>Producto</h5>
+        <h5>Manada</h5>
         <ul>
           <li><a href="index.html">Inicio</a></li>
-          <li><a href="consumidores.html">Para tu mascota</a></li>
-          <li><a href="proveedores.html">Para marcas</a></li>
+          <li><a href="nosotros.html">Nosotros</a></li>
+          <li><a href="nosotros.html#valores">Valores</a></li>
         </ul>
       </div>
       <div class="footer-col">
-        <h5>Organización</h5>
+        <h5>Sumate</h5>
         <ul>
-          <li><a href="#">La empresa (S.A.S.)</a></li>
-          <li><a href="#">La ONG</a></li>
-          <li><a href="#">Informe de impacto</a></li>
+          <li><a href="proveedores.html">Para empresas</a></li>
+          <li><a href="contacto.html">Para refugios y hogares</a></li>
         </ul>
       </div>
       <div class="footer-col">
